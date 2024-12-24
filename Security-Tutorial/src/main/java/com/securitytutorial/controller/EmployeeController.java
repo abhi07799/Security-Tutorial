@@ -8,10 +8,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("api/v1/employee")
 public class EmployeeController
 {
     @Autowired
     private EmployeeService empService;
+
+    @PostMapping("/testUser")
+    public ResponseEntity<String> seyHello() {
+        return ResponseEntity.ok("Hello from User Controller!");
+    }
 
     @PostMapping("addEmployee")
     public ResponseEntity<?> addEmployee(@RequestBody EmployeeModel employee)
